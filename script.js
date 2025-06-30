@@ -7,11 +7,11 @@ window.addEventListener("DOMContentLoaded", () => {
       const lignes = data.trim().split("\n");
 
       lignes.forEach(ligne => {
-        const cellules = ligne.split(","); // ⚠️ Remplacez par ";" si votre fichier utilise des points-virgules
+        const cellules = ligne.split(",");
         donneesCSV.push(cellules.map(cellule => cellule.trim()));
       });
 
-      // ✅ Affichage dans la console pour vérification
+      
       console.log("Données importées depuis stats.csv :", donneesCSV);
     })
     .catch(error => {
