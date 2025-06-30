@@ -10,7 +10,7 @@
 
   <script>
     // Charger le fichier CSV à l'ouverture de la page
-    fetch("donnees.csv")
+    fetch("stats.csv")
       .then(response => response.text())
       .then(data => {
         const lignes = data.trim().split("\n");
