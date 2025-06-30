@@ -1,13 +1,34 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Sel</title>
-
+  <meta charset="UTF-8">
+  <title>Lecture CSV automatique</title>
 </head>
 <body>
-Bonjour
-    <iframe src="URL_Google_Sheets_publié" width="100%" height="400px"></iframe>
+  <h2>Données importées depuis le CSV</h2>
+  <table id="csvTable" border="1"></table>
+
+  <script>
+    // Charger le fichier CSV à l'ouverture de la page
+    fetch("donnees.csv")
+      .then(response => response.text())
+      .then(data => {
+        const lignes = data.trim().split("\n");
+        const table = document.getElementById("csvTable");
+
+        lignes.forEach(ligne => {
+          const row = table.insertRow();
+          const cellules = ligne.split(","); // ou ";" selon le fichier
+
+          cellules.forEach(cellule => {
+            const cell = row.insertCell();
+            cell.textContent = cellule.trim();
+          });
+        });
+      })
+      .catch(error => {
+        console.error("Erreur lors du chargement du fichier CSV :", error);
+      });
+  </script>
 </body>
 </html>
