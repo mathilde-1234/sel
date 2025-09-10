@@ -26,4 +26,5 @@ async function getSaltPer100g(barcode) {
 }
 
 // Exemple d'utilisation
-getSaltPer100g('3017624010701'); // Remplace par le code-barres souhaité
+getSaltPer100g('3033491377105'); // Remplace par le code-barres souhaité
+
